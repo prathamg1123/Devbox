@@ -1,0 +1,18 @@
+p {
+    font-size: 30px;
+    font-family:Montserrat;
+    text-align: center;
+}
+.heading {
+    
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.text {
+    width:550px;
+    margin-top: 0;
+}
+.link {
+    text-decoration: underline;
+}

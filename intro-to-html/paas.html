@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bus Pass – Editable Template</title>
+  <style>
+    /* ====== Layout ====== */
+    :root{
+      --accent:#e0563a; /* shift circle */
+      --ink:#0f172a;    /* text color */
+      --muted:#6b7280;  /* secondary text */
+      --line:#e5e7eb;   /* borders */
+      --brand:#111827;  /* header bar */
+      --bg:#ffffff;     /* card */
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"; background:#f6f7fb; color:var(--ink)}
+    .wrap{max-width:1100px; margin:24px auto; padding:16px}
+    .grid{display:grid; gap:20px; grid-template-columns: 360px 1fr}/* ====== Card ====== */
+.card-frame{display:flex; align-items:center; justify-content:center; padding:20px; background:#eef2f7; border-radius:16px; border:1px dashed #cbd5e1}
+.card{width: 85.6mm; height: 54mm; background:var(--bg); border:1.2px solid #d1d5db; border-radius:6px; position:relative; box-shadow:0 6px 18px rgba(15,23,42,.08); display:flex; flex-direction:column; overflow:hidden}
+.topbar{background:#fff; border-bottom:1px solid var(--line); padding:6px 8px; text-align:center}
+.topbar .uni{font-size:10.5px; font-weight:600; letter-spacing:.1px}
+
+.band{padding:6px 8px; display:grid; grid-template-columns: auto 1fr auto; gap:8px; align-items:center; border-bottom:1px solid var(--line)}
+.band .title{font-weight:700; font-size:11px; letter-spacing:.3px}
+.band .shift{display:flex; align-items:center; justify-content:center; width:18mm; height:18mm; border-radius:999px; background:var(--accent); color:#fff; font-weight:800; font-size:12px; line-height:1}
+.band .shift small{display:block; font-size:7px; font-weight:700; letter-spacing:.5px; opacity:.9; margin-top:2px}
+
+.body{flex:1; display:grid; grid-template-columns: 20mm 1fr; gap:8px; padding:8px}
+.photo{width:20mm; height:24mm; border:1px solid var(--line); border-radius:2px; overflow:hidden; background:#f3f4f6; display:flex; align-items:center; justify-content:center}
+.photo img{width:100%; height:100%; object-fit:cover}
+
+.fields{display:grid; gap:2px; align-content:start}
+.name{font-weight:800; font-size:12px; margin-bottom:2px}
+.row{display:grid; grid-template-columns: 28mm 1fr; gap:4px; font-size:8.2px}
+.label{color:var(--muted)}
+.value{color:var(--ink); font-weight:600}
+
+.foot{margin-top:auto; padding:6px 8px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between}
+.qr{width:12mm; height:12mm; border:1px solid var(--line); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:7px; color:var(--muted)}
+.sign{font-size:7.5px; color:var(--muted); text-align:right}
+
+/* ====== Form ====== */
+.panel{background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(15,23,42,.06)}
+.panel h2{margin:0 0 10px; font-size:18px}
+.panel label{display:block; font-size:12px; color:var(--muted)}
+.panel input, .panel select{width:100%; margin:4px 0 10px; padding:10px 12px; border:1px solid #d1d5db; border-radius:10px; font-size:14px}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.small{font-size:11px; color:var(--muted)}
+.actions{display:flex; gap:8px; margin-top:6px}
+.btn{appearance:none; border:0; padding:10px 12px; border-radius:10px; background:#111827; color:#fff; font-weight:600; cursor:pointer}
+.btn.ghost{background:#f3f4f6; color:#111827}
+
+/* ====== Print ====== */
+@page{ size: 85.6mm 54mm; margin: 4mm }
+@media print{
+  body{background:#fff}
+  .grid{display:block}
+  .panel{display:none}
+  .wrap{padding:0; margin:0}
+  .card-frame{border:0; padding:0; box-shadow:none}
+  .card{box-shadow:none}
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid">
+      <!-- ====== Editor Panel ====== -->
+      <div class="panel">
+        <h2>Bus Pass – Editor</h2>
+        <div class="row2">
+          <div>
+            <label>University / Board</label>
+            <input id="inp_uni" value="Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore" />
+          </div>
+          <div>
+            <label>Session (e.g., 2025-26)</label>
+            <input id="inp_session" value="2025-26" />
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label>Student Name</label>
+            <input id="inp_name" value="ROSHAN BAROD" />
+          </div>
+          <div>
+            <label>Shift Label</label>
+            <input id="inp_shift" value="II" />
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label>Enrollment No.</label>
+            <input id="inp_enrl" value="24100BTCSE17843" />
+          </div>
+          <div>
+            <label>Program / Year</label>
+            <input id="inp_prog" value="B.TECH. / II YR" />
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label>Institute</label>
+            <input id="inp_inst" value="SVIIT" />
+          </div>
+          <div>
+            <label>Route</label>
+            <input id="inp_route" value="UJJAIN" />
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label>Receipt No.</label>
+            <input id="inp_rec" value="808" />
+          </div>
+          <div>
+            <label>Validity (e.g., June-2026)</label>
+            <input id="inp_valid" value="June-2026" />
+          </div>
+        </div><div class="row2">
+      <div>
+        <label>Accent Colour</label>
+        <input id="inp_color" type="color" value="#e0563a" />
+      </div>
+      <div>
+        <label>Upload Photo</label>
+        <input id="inp_photo" type="file" accept="image/*" />
+      </div>
+    </div>
+
+    <div class="row2">
+      <div>
+        <label>Upload QR (optional)</label>
+        <input id="inp_qr" type="file" accept="image/*" />
+      </div>
+      <div>
+        <label>Show Guide Border</label>
+        <select id="inp_border">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+      <button class="btn ghost" id="btnReset">Reset Fields</button>
+    </div>
+    <p class="small">Tip: After editing, use <b>Print → Save as PDF</b> for a crisp export. During print, only the card is shown and sized to real ID-1 (85.6×54mm).</p>
+  </div>
+
+  <!-- ====== Card Preview ====== -->
+  <div class="card-frame">
+    <div class="card" id="card">
+      <div class="topbar">
+        <div class="uni" id="out_uni">Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore</div>
+      </div>
+
+      <div class="band">
+        <div class="title">BUS PASS: <span id="out_session">2025-26</span></div>
+        <div></div>
+        <div class="shift" id="out_shift">
+          <div>
+            <div id="out_shift_text" style="font-size:12px">II</div>
+            <small>SHIFT</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="photo" id="photoWrap">
+          <img id="out_photo" alt="photo"/>
+        </div>
+
+        <div class="fields">
+          <div class="name" id="out_name">ROSHAN BAROD</div>
+
+          <div class="row"><div class="label">Enrl No</div><div class="value" id="out_enrl">24100BTCSE17843</div></div>
+          <div class="row"><div class="label">Prog/ Yr</div><div class="value" id="out_prog">B.TECH. / II YR</div></div>
+          <div class="row"><div class="label">Institute</div><div class="value" id="out_inst">SVIIT</div></div>
+          <div class="row"><div class="label">Route</div><div class="value" id="out_route">UJJAIN</div></div>
+          <div class="row"><div class="label">Rec. No.</div><div class="value" id="out_rec">808</div></div>
+          <div class="row"><div class="label">Validity</div><div class="value" id="out_valid">June-2026</div></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="qr"><img id="out_qr" alt="qr" style="width:100%; height:100%; object-fit:cover; display:none"/></div>
+        <div class="sign">
+          <div style="height:10mm"></div>
+          <div>Registrar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>  <script>
+    // Helpers
+    const bind = (inp, out, transform=x=>x) => {
+      const i = document.getElementById(inp);
+      const o = document.getElementById(out);
+      const apply = ()=> o.textContent = transform(i.value);
+      i.addEventListener('input', apply); apply();
+    };
+
+    bind('inp_uni', 'out_uni');
+    bind('inp_session', 'out_session');
+    bind('inp_name', 'out_name', v=>v.toUpperCase());
+    bind('inp_enrl', 'out_enrl');
+    bind('inp_prog', 'out_prog');
+    bind('inp_inst', 'out_inst');
+    bind('inp_route', 'out_route', v=>v.toUpperCase());
+    bind('inp_rec', 'out_rec');
+    bind('inp_valid', 'out_valid');
+
+    // Shift + color
+    const shiftInp = document.getElementById('inp_shift');
+    const shiftText = document.getElementById('out_shift_text');
+    const shiftBadge = document.getElementById('out_shift');
+    const colorInp = document.getElementById('inp_color');
+    const card = document.getElementById('card');
+    const borderSel = document.getElementById('inp_border');
+
+    const applyShift = ()=>{ shiftText.textContent = shiftInp.value; };
+    const applyColor = ()=>{ shiftBadge.style.background = colorInp.value; };
+    const applyBorder = ()=>{ card.style.border = borderSel.value==='1' ? '1.2px solid #d1d5db' : '0'; };
+
+    shiftInp.addEventListener('input', applyShift); applyShift();
+    colorInp.addEventListener('input', applyColor); applyColor();
+    borderSel.addEventListener('change', applyBorder); applyBorder();
+
+    // Photo + QR uploads
+    const readImg = (file, el) => {
+      if(!file) return; const r = new FileReader();
+      r.onload = e=>{ el.src = e.target.result; el.style.display='block'; };
+      r.readAsDataURL(file);
+    };
+    document.getElementById('inp_photo').addEventListener('change', e=>{
+      readImg(e.target.files[0], document.getElementById('out_photo'));
+    });
+    document.getElementById('inp_qr').addEventListener('change', e=>{
+      const el = document.getElementById('out_qr');
+      readImg(e.target.files[0], el);
+    });
+
+    // Reset
+    document.getElementById('btnReset').addEventListener('click', ()=>{
+      document.querySelectorAll('.panel input[type="text"], .panel input:not([type])').forEach(i=>i.value='');
+      ['out_uni','out_session','out_name','out_enrl','out_prog','out_inst','out_route','out_rec','out_valid'].forEach(id=>document.getElementById(id).textContent='');
+      document.getElementById('out_photo').removeAttribute('src');
+      document.getElementById('out_qr').removeAttribute('src');
+      document.getElementById('out_qr').style.display='none';
+    });
+  </script></body>
+</html>

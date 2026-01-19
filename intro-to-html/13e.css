@@ -1,0 +1,63 @@
+p {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+}
+
+.email {
+    border: 1px solid grey;
+    width: 450px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.all-inboxes {
+    height: 30px;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.heading {
+    margin-left: 18px;
+    margin-top: 11px;
+    color: grey;
+}
+
+.promotion {
+   display: flex;
+   flex-direction: row;
+   align-items: center; /* centers avatar + details */
+}
+
+.user-profile-div {
+    margin-left: 20px;
+    margin-right: 18px;
+}
+.user-profile {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;  /* ✅ correct value */
+    border-radius: 50%;
+}
+
+.user-detail {
+    flex: 1;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line-1 {
+    font-weight: bold;
+    font-size: 20px;
+}
+.line-2 {
+    font-weight: bold;
+    font-size: 18px;
+}
+.line-3 {
+    color: gray;
+    font-size: 16px;
+}

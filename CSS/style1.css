@@ -1,0 +1,6 @@
+div {
+    height: 100px;
+    width: 100px;
+    border : 2px black solid;
+    background-color: rgb(170, 170, 170);
+}
