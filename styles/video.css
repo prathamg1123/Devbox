@@ -31,7 +31,7 @@
 
         .video-info {
             display: inline-block;
-            width: 240px;
+            width: 1fr ;
         }
         .video-preview {
             display: grid;
